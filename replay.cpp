@@ -64,6 +64,12 @@ void draw_bbox(Mat frame, vector<float> bbox) {
   }
 }
 
+void draw_bbox_centre(Mat frame, vector<float> bbox) {
+  Point centre(bbox[3], bbox[4]);
+
+  circle(frame, centre, 2, Scalar(255, 0, 0));
+}
+
 int main(int argc, char **argv) {
 
   // Open input video file and interrogate it.
@@ -97,6 +103,7 @@ int main(int argc, char **argv) {
     // If we have bbox data and it's for the right frame...
     if(bbox.size() > 0 && bbox[0] == frame) {
       draw_bbox(image, bbox);
+      draw_bbox_centre(image, bbox);
       bbox = get_next_line_tokens(csv);
     }
 

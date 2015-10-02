@@ -38,6 +38,8 @@ using std::string;
 using std::stringstream;
 using std::vector;
 
+static Scalar draw_colour(255, 255, 255);
+
 vector<float> get_next_line_tokens(istream& file_stream) {
   vector<float> tokens;
   string line;
@@ -60,14 +62,14 @@ void draw_bbox(Mat frame, vector<float> bbox) {
     Point pnt1(bbox[n], bbox[n + 1]);
     Point pnt2(bbox[m], bbox[m + 1]);
 
-    line(frame, pnt1, pnt2, Scalar(255, 0, 0));
+    line(frame, pnt1, pnt2, draw_colour);
   }
 }
 
 void draw_bbox_centre(Mat frame, vector<float> bbox) {
   Point centre(bbox[3], bbox[4]);
 
-  circle(frame, centre, 2, Scalar(255, 0, 0));
+  circle(frame, centre, 2, draw_colour);
 }
 
 int main(int argc, char **argv) {

@@ -53,15 +53,15 @@ vector<float> get_next_line_tokens(istream& file_stream) {
 }
 
 void draw_bbox(Mat frame, vector<float> bbox) {
-  Point point1(bbox[8], bbox[9]);
-  Point point2(bbox[10], bbox[11]);
-  Point point3(bbox[12], bbox[13]);
-  Point point4(bbox[14], bbox[15]);
+  for(int i = 0; i < 4; i++) {
+    int n = (i + 4) * 2;
+    int m = (((i + 1) % 4) + 4) * 2;
 
-  line(frame, point1, point2, Scalar(255,0,0));
-  line(frame, point2, point3, Scalar(255,0,0));
-  line(frame, point3, point4, Scalar(255,0,0));
-  line(frame, point4, point1, Scalar(255,0,0));
+    Point pnt1(bbox[n], bbox[n + 1]);
+    Point pnt2(bbox[m], bbox[m + 1]);
+
+    line(frame, pnt1, pnt2, Scalar(255, 0, 0));
+  }
 }
 
 int main(int argc, char **argv) {

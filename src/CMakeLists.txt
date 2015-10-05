@@ -10,5 +10,11 @@
 # Author: Robert Haines
 #------------------------------------------------------------------------------
 
-add_executable(cmt-replay main.cpp)
+# Source files.
+set(REPLAY_EXE_SRCS
+  main.cpp
+)
+
+# Create and link executable.
+add_executable(cmt-replay ${REPLAY_EXE_SRCS})
 target_link_libraries(cmt-replay ${OpenCV_LIBS})

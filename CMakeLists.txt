@@ -14,6 +14,10 @@ project(cmt-replay)
 
 cmake_minimum_required(VERSION 2.6)
 
+if(NOT CMAKE_RUNTIME_OUTPUT_DIRECTORY)
+  set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR} CACHE INTERNAL "Single output directory for building all executables." FORCE)
+endif(NOT CMAKE_RUNTIME_OUTPUT_DIRECTORY)
+
 find_package(OpenCV REQUIRED)
 
 if(NOT CMAKE_BUILD_TYPE)
@@ -24,6 +28,4 @@ add_definitions ("-Wall")
 
 include_directories(${OpenCV_INCLUDE_DIRS})
 
-add_executable(cmt-replay replay.cpp)
-
-target_link_libraries(cmt-replay ${OpenCV_LIBS})
+add_subdirectory(src)

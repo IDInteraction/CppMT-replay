@@ -10,7 +10,7 @@
 # Author: Robert Haines
 #------------------------------------------------------------------------------
 
-project(cmt-replay)
+project(REPLAY CXX)
 
 cmake_minimum_required(VERSION 2.6)
 

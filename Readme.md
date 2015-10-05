@@ -2,6 +2,10 @@
 
 Robert Haines, University of Manchester, UK
 
+## Synopsis
+
+Combine [CppMT][cmt] object tracking data with the original video for verification and further use.
+
 ## Usage
 
 ```shell
@@ -18,4 +22,5 @@ Copyright (c) 2015 The University of Manchester, UK.
 
 BSD Licenced. See LICENCE for details.
 
+[cmt]: https://github.com/gnebehay/CppMT
 [gow]: http://gow.epsrc.ac.uk/NGBOViewGrant.aspx?GrantRef=EP/M017133/1

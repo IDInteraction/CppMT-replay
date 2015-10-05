@@ -15,6 +15,12 @@ set(REPLAY_EXE_SRCS
   main.cpp
 )
 
+# Turn on all compiler warnings.
+set_source_files_properties(
+  ${REPLAY_EXE_SRCS}
+  PROPERTIES COMPILE_FLAGS -Wall
+)
+
 # Create and link executable.
 add_executable(cmt-replay ${REPLAY_EXE_SRCS})
 target_link_libraries(cmt-replay ${OpenCV_LIBS})

@@ -72,6 +72,11 @@ void draw_bbox_centre(Mat frame, vector<float> bbox) {
   circle(frame, centre, 2, draw_colour);
 }
 
+string output_filename(string input_filename) {
+  int dot = input_filename.find_last_of('.');
+  return input_filename.substr(0, dot) + "_out.avi";
+}
+
 int main(int argc, char **argv) {
 
   // Open input video file and interrogate it.
@@ -88,7 +93,7 @@ int main(int argc, char **argv) {
   get_next_line_tokens(csv);
 
   // Open output video file.
-  VideoWriter out(argv[3], CV_FOURCC('X', 'V', 'I', 'D'), fps, size, true);
+  VideoWriter out(output_filename(argv[1]), CV_FOURCC('X', 'V', 'I', 'D'), fps, size, true);
   if(!out.isOpened()) {
     cerr << "Cannot open output video." << endl;
     return 1;

@@ -15,13 +15,19 @@ project(cmt-replay)
 cmake_minimum_required(VERSION 2.6)
 
 if(NOT CMAKE_RUNTIME_OUTPUT_DIRECTORY)
-  set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR} CACHE INTERNAL "Single output directory for building all executables." FORCE)
+  set(CMAKE_RUNTIME_OUTPUT_DIRECTORY
+    ${PROJECT_BINARY_DIR}
+    CACHE
+    INTERNAL
+    "Build the executable in the root directory"
+    FORCE
+  )
 endif(NOT CMAKE_RUNTIME_OUTPUT_DIRECTORY)
 
 find_package(OpenCV REQUIRED)
 
 if(NOT CMAKE_BUILD_TYPE)
-    set(CMAKE_BUILD_TYPE Release CACHE STRING "Build type" FORCE)
+  set(CMAKE_BUILD_TYPE Release CACHE STRING "Build type" FORCE)
 endif(NOT CMAKE_BUILD_TYPE)
 
 add_definitions ("-Wall")

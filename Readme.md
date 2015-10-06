@@ -20,6 +20,24 @@ The output video file is named automatically using the input video filename to e
 
 CppMT-replay requires [OpenCV][ocv] version 2.4 to build and run. It is built using [CMake][cmk] version 2.6 or later.
 
+## Building
+
+With CMake you build software "out of source", that is you leave the source code tree clean and build in a different directory.
+
+1. From an empty directory point `cmake` at the source for CppMT-replay:
+
+  ```shell
+  $ cmake /path/to/CppMT-replay
+  ```
+1. Provided that your OpenCV installation can be found, all you need to do now is call `make` in the same directory:
+
+  ```shell
+  $ make
+  ```
+And `cmt-replay` will be ready to use.
+
+See the [CMake documentation][cmk] for more information and instructions for Windows and MacOS X.
+
 ## Acknowledgements
 
 CppMT-replay was developed in the IDInteraction project, funded by the Engineering and Physical Sciences Research Council, UK through grant agreement number [EP/M017133/1][gow].

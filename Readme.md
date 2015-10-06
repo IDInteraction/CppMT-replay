@@ -8,9 +8,13 @@ Combine [CppMT][cmt] object tracking data with the original video for verificati
 
 ## Usage
 
+This program takes a video and associated object tracking data output from [CppMT][cmt] (using the `--output-file` switch) and combines the two, overlaying the bounding box outline and centre point in the output video.
+
 ```shell
 $ cmt-replay <video-input> <data-input>
 ```
+
+The output video file is named automatically using the input video filename to ensure that a combination of codec and container that OpenCV can write to is used. For example, an input video file named `video.mp4` will produce an output video file named `video_out.avi`. OpenCV can read the mp4 container but cannot write to it.
 
 ## Acknowledgements
 

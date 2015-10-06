@@ -9,7 +9,7 @@ Combine [CppMT][cmt] object tracking data with the original video for verificati
 ## Usage
 
 ```shell
-$ cmt-replay <video-input> <data-input> <video-output>
+$ cmt-replay <video-input> <data-input>
 ```
 
 ## Acknowledgements

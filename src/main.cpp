@@ -98,8 +98,11 @@ int main(int argc, char **argv) {
   ifstream csv(argv[2]);
   get_next_line_tokens(csv);
 
+  // Generate the full output filename.
+  string out_path = (argc == 4) ? output_filename(argv[1], argv[3]) : output_filename(argv[1]);
+
   // Open output video file.
-  VideoWriter out(output_filename(argv[1]), CV_FOURCC('X', 'V', 'I', 'D'), fps, size, true);
+  VideoWriter out(out_path, CV_FOURCC('X', 'V', 'I', 'D'), fps, size, true);
   if(!out.isOpened()) {
     cerr << "Cannot open output video." << endl;
     return 1;

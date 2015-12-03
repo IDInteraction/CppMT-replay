@@ -73,12 +73,18 @@ void draw_bbox_centre(Mat frame, vector<float> bbox) {
 }
 
 string output_filename(string input_filename, string output_dir="") {
-  int dot = input_filename.find_last_of('.');
   int out_len = output_dir.length();
 
-  if(out_len > 0 && !(0 == output_dir.compare((out_len - 1), 1, "/"))) {
-    output_dir += '/';
+  if(out_len > 0) {
+    int slash = input_filename.find_last_of('/');
+    input_filename = input_filename.substr(slash + 1);
+
+    if(!(0 == output_dir.compare((out_len - 1), 1, "/"))) {
+      output_dir += '/';
+    }
   }
+
+  int dot = input_filename.find_last_of('.');
 
   return output_dir + input_filename.substr(0, dot) + "_out.avi";
 }

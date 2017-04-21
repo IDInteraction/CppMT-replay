@@ -19,8 +19,14 @@
 #include <vector>
 #include <cstdlib>
 
+#include "opencv2/core/version.hpp"
+#if CV_MAJOR_VERSION == 2
 #include <opencv2/highgui/highgui.hpp>
-
+#elif CV_MAJOR_VERSION == 3
+#include <opencv2/core.hpp>
+#include <opencv2/imgproc.hpp>
+#include <opencv2/highgui.hpp>
+#endif
 using cv::Mat;
 using cv::Point;
 using cv::Scalar;
@@ -61,7 +67,6 @@ void draw_bbox(Mat frame, vector<float> bbox) {
 
     Point pnt1(bbox[n], bbox[n + 1]);
     Point pnt2(bbox[m], bbox[m + 1]);
-
     line(frame, pnt1, pnt2, draw_colour);
   }
 }
